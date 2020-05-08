@@ -23,8 +23,13 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
+    if len(s) >= 3:
+        if s.endswith("ing"):
+            return s + "ly"
+        else:
+            return s+"ing"
+    else:
+        return s
 
 
 # E. not_bad
@@ -37,8 +42,12 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    if "bad" not in s or "not" not in s:
+        return s
+    if (s.index("not") < s.index("bad")):
+        return s.replace(s[(s.index("not")): s.index("bad")+3], "good")
+    else:
+        return s
 
 
 # F. front_back
@@ -52,12 +61,31 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    x = len(a)
+    h = int(len(a)/2)
+    j = int(len(b)/2)
+    y = len(b)
+    a_front, b_front, a_back, b_back = "", "", "", ""
+    if x % 2 == 0:
+        a_front, a_back = a[:h], a[h:]
+
+    if y % 2 == 0:
+
+        b_front, b_back = b[:j], b[j:]
+
+    if x % 2 != 0:
+        a_front, a_back = a[:h+1], a[h+1:]
+
+    if y % 2 != 0:
+        b_front, b_back = b[:j+1], b[j+1:]
+
+    return a_front+b_front+a_back+b_back
 
 
 # Provided simple test() function used in main() to print
-# what each function returns vs. what it's supposed to return.
+ # what each function returns vs. what it's supposed to return.
+
+
 def test(got, expected):
     if got == expected:
         prefix = ' OK '
