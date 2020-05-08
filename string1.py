@@ -27,9 +27,8 @@ __author__ = "???"
 #   donuts(23) returns 'Number of donuts: many'
 
 
-def donuts(count):
-    # your code here
-    return
+def donuts(
+    count): return f"Number of donuts: {count if count < 10 else 'many'}"
 
 
 # B. both_ends
@@ -41,9 +40,7 @@ def donuts(count):
 #   'spring' -> 'spng'
 
 
-def both_ends(s):
-    # your code here
-    return
+def both_ends(s): return s[:2]+s[-2:] if len(s) > 2 else ""
 
 
 # C. fix_start
@@ -57,10 +54,7 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 
 
-def fix_start(s):
-    # your code here
-    return
-
+def fix_start(s): return s[0] + s[1:].replace(s[0], "*")
 
 # D. mix_up
 # Given strings a and b, return a single string with a and
@@ -73,8 +67,9 @@ def fix_start(s):
 
 
 def mix_up(a, b):
-    # your code here
-    return
+    a_first, a_last, b_first, b_last = a[:2], a[2:], b[:2], b[2:]
+
+    return(f"{b_first+a_last} {a_first+b_last}")
 
 
 # Provided simple test() function used in main() to print
